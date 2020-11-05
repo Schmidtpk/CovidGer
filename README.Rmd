@@ -1,0 +1,62 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# CovidGer
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of CovidGer is to provide relatively easy access to the data used in "Inference under superspreading" by Patrick Schmidt.
+
+The repository contains additional code on the generation of the data files in the data-raw folder.
+
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("Schmidtpk/CovidGer")
+```
+## Example: Case data by the rki
+
+This is a basic example which shows you how to use the case data by the rki. See `?rki_new` for the data source.
+
+
+The following example aggregates German wide cases and deaths by symptom onset.
+```{r example, echo=FALSE, message=FALSE}
+library(CovidGer)
+library(dplyr)
+library(ggplot2)
+detach("package:stats")
+
+df<-rki_new %>%
+  filter(!is.na(Refdatum))%>%
+  group_by(Refdatum)%>%
+  summarise(
+    positive= sum(AnzahlFall[Neuer.Fall%in%c(0,1)]),
+    deaths = sum(AnzahlTodesfall[Neuer.Todesfall%in%c(0,1)])
+  ) %>%
+  rename(
+    date=Refdatum,
+  )%>%pivot_longer(c(positive,deaths))
+
+ggplot(df,aes(x=date,y=value))+
+  geom_point()+
+  geom_line()+
+  facet_wrap(.~name,ncol=1,scale="free_y")+
+  xlab("date of symptom onset")
+```
+
