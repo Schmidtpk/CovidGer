@@ -91,6 +91,6 @@ The Package also contains data on population statistics
 from the German Weather Services (DWD) in `weather_dwd`, and on policy
 interventions in `interventions.list` and `interventions`.
 
-The intervention data was generated in a spreadsheet, which is
+The intervention data was generated in a spreadsheet, which is directly
 accessible
 [here](https://docs.google.com/spreadsheets/d/1cmGBMUhBt5y6jwiqaF7lh7VQNMN6D5FCoIltlOzhMfI/edit#gid=0).
