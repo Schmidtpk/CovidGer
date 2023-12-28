@@ -4,7 +4,6 @@
 # CovidGer
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 The goal of CovidGer is to provide relatively easy access to the data
@@ -34,7 +33,9 @@ onset.
 ``` r
 library(CovidGer)
 library(dplyr)
+#> Warning: package 'dplyr' was built under R version 4.1.3
 library(tidyr)
+#> Warning: package 'tidyr' was built under R version 4.1.3
 library(ggplot2)
 
 df<-rki_new %>%
@@ -87,5 +88,5 @@ rki_new %>%
 
 The Package also contains data on population statistics
 (Regionaldatenbank) in `regionaldatenbank`, on location specific weather
-in `weather_dwd`, on policy interventions in `interventions.list` and
-`interventions`.
+from the German Weather Services (DWD) in `weather_dwd`, and on policy
+interventions in `interventions.list` and `interventions`.

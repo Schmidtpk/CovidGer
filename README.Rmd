@@ -90,3 +90,4 @@ rki_new %>%
 
 The Package also contains data on population statistics (Regionaldatenbank) in `regionaldatenbank`, on location specific weather from the German Weather Services (DWD) in `weather_dwd`, and on policy interventions in `interventions.list` and `interventions`.
 
+The intervention data was generated in a spreadsheet, which is accesible  [here](https://docs.google.com/spreadsheets/d/1cmGBMUhBt5y6jwiqaF7lh7VQNMN6D5FCoIltlOzhMfI/edit#gid=0).
